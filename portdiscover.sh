@@ -13,5 +13,5 @@ endColour="\033[0m\e[0m"
 
 for port in {1..1000};
 do
-  	(timeout 1 echo "" > /dev/tcp/localhost/$port)2>/dev/null && echo -e " ${greenColour}[+] OPEND PORT $port${endColour}" || echo " [-] CLOSED PORT $port" &
+  	(timeout 1 echo "" > /dev/tcp/localhost/$port)2>/dev/null && echo -e " ${greenColour}[+] OPEND PORT $port${endColour}" &
 done; wait
