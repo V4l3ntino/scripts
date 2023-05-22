@@ -15,7 +15,7 @@ turquoiseColour="\e[0;36m\033[1m"
 
 grayColour="\e[0;37m\033[1m"
 function ctrl_c(){
-echo -ne "\r ${redColour}[!] Cancelando autodestrucción${endColour}"
+echo -ne "\r ${purpleColour}[-] Cancelando autodestrucción${endColour}"
 sleep 1
 echo -ne "\r ${greenColour}[+] Autodestrucción cancelada exitósamente${endColour} \n" 
 echo "
@@ -28,7 +28,7 @@ trap ctrl_c INT
 tput civis
 echo "
 "
-echo -ne "\r${blueColour}Hasta la próximaaaaaaaa${endColour}"
+echo -ne "\r${redColour}[!] Activando autodestrucción${endColour}"
 sleep 5
 shutdown -h now
 
