@@ -18,8 +18,7 @@ endColour="\033[0m\e[0m"
 #EXIT
 trap ctrl_c INT 1>/dev/null 
 tput civis
-echo "
-"
+
 while true; do
 sleep 1
 echo "
