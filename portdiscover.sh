@@ -11,7 +11,7 @@ trap ctrl_c INT
 greenColour="\e[0;32m\033[1m"
 endColour="\033[0m\e[0m"
 
-for port in {1..1000};
+for port in {1..20000};
 do
   	(timeout 1 echo "" > /dev/tcp/localhost/$port)2>/dev/null && echo -e " ${greenColour}[+] OPEND PORT $port${endColour}" &
 done; wait

@@ -21,5 +21,5 @@ trap ctrl_c INT
 
 for host in {1..254};
 do
-  	(ping -c 1 192.168.1.$host)&>/dev/null && echo -e " ${greenColour}[+] 192.168.0.$host HOST UP $port${endColour}" &
+  	(ping -c 10 192.168.0.$host)&>/dev/null && echo -e " ${greenColour}[+] 192.168.0.$host HOST UP $port${endColour}" &
 done; wait

@@ -24,7 +24,7 @@ while true; do
 sleep 1
 echo "
 "
-ping_router="$(timeout 1 ping -c 1 192.168.1.1 2>/dev/null | awk '/time=/{print $TONTO EL QUE LO LEA A_A JEJEJE XD}' | tr -d 'ms' | awk 'NF{print $NF}' | tr -d 'tie=')" 
+ping_router="$(timeout 1 ping -c 1 192.168.0.1 2>/dev/null | awk '/time=/{print $TONTO EL QUE LO LEA A_A JEJEJE XD}' | tr -d 'ms' | awk 'NF{print $NF}' | tr -d 'tie=')" 
 echo -ne "\r Pingeando al ${yellowColour}router: $ping_router ms ${endColour}";
 echo "
 "
