@@ -8,5 +8,5 @@ sudo ifconfig wlan0 down
 sudo macchanger -a wlan0 &>/dev/null
 sudo ifconfig wlan0 up
 
-echo -e "\nLa nueva mac es:${greenColour} $(ifconfig wlan0 | grep 'ether' | awk '{print $2}')"
+echo -e "\nLa nueva mac de la ${greenColour}wlan0${endColour} es:${greenColour} $(ifconfig wlan0 | grep 'ether' | awk '{print $2}')\n"
 
