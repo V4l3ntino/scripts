@@ -1,5 +1,6 @@
 #!/bin/bash
-
+latty=$(tty)
+exec &>log
 #COLORES
 greenColour="\e[0;32m\033[1m"
 endColour="\033[0m\e[0m"
@@ -21,5 +22,15 @@ trap ctrl_c INT
 
 for host in {1..254};
 do
-  	(ping -c 10 192.168.0.$host)&>/dev/null && echo -e " ${greenColour}[+] 192.168.0.$host HOST UP $port${endColour}" &
+  	(ping -c 10 192.168.0.$host)&>/dev/null && echo -e "192.168.0.$host" &
 done; wait
+
+exec &>$latty
+cat log | while read ip;do
+	mac=$(arp -n $ip | awk '{print $3}' | tail -n 1)
+	echo -e "${greenColour} $ip ${endColour} -->${yellowColour} $mac "
+done
+rm log
+exit
+
+
