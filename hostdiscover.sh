@@ -13,6 +13,7 @@ grayColour="\e[0;37m\033[1m"
 
 #SALIDA DEL PROGRAMA
 function ctrl_c (){
+	rm log
 	echo -ne "\r         "
 	echo -e "\n ${redColour}[+] Salida \n"
 	exit 1
