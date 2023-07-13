@@ -27,10 +27,15 @@ do
 done; wait
 
 exec &>$latty
+echo -e "${blueColour} ------------------------------------------${endColour}"
+echo -e "${blueColour}|${endColour}          ${greenColour}IPS${endColour} --> ${yellowColour}MACS${endColour}              ${blueColour}      |${endColour}"
+echo -e "${blueColour} ------------------------------------------${endColour}"
 cat log | while read ip;do
 	mac=$(arp -n $ip | awk '{print $3}' | tail -n 1)
-	echo -e "${greenColour} $ip ${endColour} -->${yellowColour} $mac "
+	echo -e "${blueColour}|------------------------------------------|${endColour}"
+	echo -e "   ${greenColour} $ip ${endColour} -->${yellowColour} $mac ${endColour}"
 done
+echo -e "${blueColour}|------------------------------------------|${endColour}"
 rm log
 exit
 
